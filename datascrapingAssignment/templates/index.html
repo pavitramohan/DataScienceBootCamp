@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Information about Mars</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class='row'>
+        <div class="col-md-12 jumbotron text-center">
+        <h1>Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Latest Mars News</h2>
+            <h3>{{ data.news_title }}</h3>
+            <p>{{ data.news_paragraph }}</p>
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-md-8">
+            <h2>Featured Mars Image</h2>
+            <img src="{{data.featured_image_url}}" class="img-fluid">
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Current Weather on Mars</h5>
+                <p class="card-text"><p>{{data.Mars_Weather}}</p>
+               </div>
+            </div>
+            <br>
+                <h3>Mars Facts</h3>
+                {{data.facts_table|safe}}
+        </div>
+     </div>
+    </div> <!--end container-->
+    <br>
+    <div class="container">
+        <div class="row text-center"><div class="col-md-12"><h3>Mars Hemispheres</h3></div></div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{data.hemispheres[0].img_url}}" class="img-fluid">
+                        <p><b>{{data.hemispheres[0].title}}</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{data.hemispheres[1].img_url}}" class="img-fluid">
+                        <p><b>{{data.hemispheres[1].title}}</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{data.hemispheres[2].img_url}}" class='img-fluid'>
+                        <p><b>{{data.hemispheres[2].title}}</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{data.hemispheres[3].img_url}}" class='img-fluid'>
+                        <p><b>{{data.hemispheres[3].title}}</b></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <!---/div-->
+</body>
+
+</html>
