@@ -21,14 +21,28 @@ submit.on("click", function() {
   d3.event.preventDefault();
 
   // Select the input element and get the raw HTML node
-  var inputElement = d3.select("#datetime");
+  var datetimeValue = d3.select("#datetime").property("value");
+  var cityValue = d3.select("#city").property("value");
+  var stateValue = d3.select("#state").property("value");
+  var countryValue = d3.select("#country").property("value");
+  var shapeValue = d3.select("#shape").property("value");
 
-  // Get the value property of the input element
-  var inputValue = inputElement.property("value");
+  var filteredValues = tableData;
+  
+  if(datetimeValue)
+    filteredValues = filteredValues.filter(data1 => data1.datetime === datetimeValue);
 
-  console.log(inputValue);
+  if(cityValue)
+    filteredValues = filteredValues.filter(data1 => data1.city === cityValue);
 
-  var filteredValues = tableData.filter(data1 => data1.datetime === inputValue);
+  if(stateValue)
+    filteredValues = filteredValues.filter(data1 => data1.state === stateValue);
+
+  if(countryValue)
+    filteredValues = filteredValues.filter(data1 => data1.country === countryValue);
+
+  if(shapeValue)
+    filteredValues = filteredValues.filter(data1 => data1.shape === shapeValue);
 
   var tbody = d3.select("tbody");
   var rows = tbody.selectAll("tr").remove();
